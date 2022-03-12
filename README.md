@@ -1,17 +1,4 @@
-## Coder_Backend: Comision 22885 
-
-## Ecommerce - MERN Stack | https://soy-glucosa-project.herokuapp.com/
-
-## Ultimo update: 11/03/2022
-
-## Arquitectura: 
-- Frontend: React | directorio client-react
-- Backend: Node JS - Express | directorio server-express 
-- DBs: Mongo (usuarios) | Firestore (productos y compras)
-- El backend tiene una arquitectura de 5 capas mas una adicional de test; server-routes-controllers-service-dao | test
-- Se implementó el patron DAOS en la capa de persistencia
-- La configuracion de envios de mails se consume desde la capa de servicios
-- Para correr los TEST, ingresar al directorio del server y ejecutar npm run test: se prueba el endpoint de traer los productos y las conexiones a las bases de datos. Las pruebas estan desarrolladas en el index.test.js.
+## Test Readme
 ```javascript
     _________    _____________________________________________________    ______________
     |       | -> |                     BACK                          | -> |  DBs       |
@@ -29,27 +16,11 @@
                     |       TEST LAYER       |     |mailing|
                     |________________________|     |_______|                 
 ```
-## Deploy Heroku: https://soy-glucosa-project.herokuapp.com/
-- El package.json en el directorio root se utiliza para el deploy en Heroku. Instruye en heroku que primero debe entrar al directorio de react y hacer el build de la app, y luego debe ir al directorio del server a iniciar el servidor, el cual esta configurado con el modelo Data on Wire, las rutas para renderizar vistas apuntan al build de React.
-- La capa de server esta diseñada para enviar todas las peticiones que no conoce al directorio donde esta el build de react.
-
-## Desarrollo: 
-- Cada directorio (client-react y server-express) tiene su package.json
-- En el directorio de client-react, las instrucciones npm start y npm build funcionan como en cualquier proyecto de react. Inicia la app en el puerto 3000. Tener en cuenta que no hay proxy configurado, no se puede iniciar el server por un lado y react por otro porque los endpoints no van a funcionar.
-- En el directorio server-express hay varias configuraciones; npm start inicia el servidor en el puerto 5000. npm run start-build hace el build de react y luego inicia el servidor en el puerto 5000.
-
-## Endpoints Rest:
+## Title
+- text
+- text
+## GraphQL:
 ```javascript
-    get  /apiFirebase/productos   | trae la lista de productos        | se utiliza en el front    | se puede probar con postman       
-```
-```javascript
-    get  /apiFirebase/ordenes     | trae todas las compras realizadas | no se utiliza en el front | se puede probar con postman     
-```
-```javascript
-    post /apiFirebase/compradores | hace push de la compra a firebase | se utiliza en el front    | se puede probar con postman. Ejemplo:  
-    
-    https://soy-glucosa-project.herokuapp.com/apiFirebase/compradores                             | Dispara un mail a la casilla comprador.email
-
     {
         "items": [
             {
@@ -202,17 +173,6 @@
     }       
 ```
 ```javascript
-    2) Query para obtener el listado completo de ordenes realizadas: retorna un array con las ordenes. 
-    Cada orden es un objeto con el siguiente formato:
-    - El ID del DOC en firestore, utilizado como nro de orden de compra.
-    - Un array de items (en caso de que haya comprado mas de un item); cada item tiene los 6 parametros que se muestran en el ejemplo.
-    - El objeto comprador.
-    - El objeto Date.
-    - El total de la compra.
-
-    Ejemplo:        
-```
-```javascript
     query{
         orders{
         id,
@@ -236,12 +196,6 @@
         total
         }
     }      
-```
-```javascript
-    3) Query para obtener el listado completo de ordenes de un usuario (se le pasa el mail del comprador)
-    - Devuelve la lista de ordenes que ha comprado un usuario. Se filtra por mail.
-
-    Ejemplo:      
 ```
 ```javascript
     query{
@@ -269,9 +223,6 @@
         }
     } 
 ```
-## Reglas de negocio:
-- Cuando inicia la aplicacion se hace un llamado a FIRESTORE para traerse el listado de productos, el mismo se guarda en un global context y se pasa a los componentes que lo requieren.
-- La aplicación permite al usuario navegar por el sitio y agregar items al carrito hasta que se acabe el stock; estas actualizaciones (agregar items al carrito) se manejan con el local storage del browser.
-- Para manejar las opciones del carrito el usuario debe iniciar sesión. es importante destacar que para efectos de prueba, la sesion dura 1 minuto.
-- En el icono de persona, el usuario puede iniciar sesion, y si no tiene usuario puede registrarse. 
-- Al iniciar sesion se le habilita un componente al usuario que muestra el panel de control, donde podra proximamente visualizar su perfil, si es admin podra cargar mas productos o actualizarlos, y tiene accesos directos a los productos y al carrito.
+## Title:
+- text
+- text
