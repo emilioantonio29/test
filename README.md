@@ -155,8 +155,7 @@
     1.- mutation para grabar una orden
     2.- query para obtener el listado completo de ordenes realizadas
     3.- query para obtener el listado completo de ordenes de un usuario (se le pasa el mail del comprador)
-
-
+```javascript
     1) Grabar una orden: la orden se graba en firestore con 4 parametros
     - Un array de items; cada item tiene los 6 parametros que se muestran en el ejemplo.
     - El objeto comprador.
@@ -164,7 +163,8 @@
     - El total de la compra.
     - Despues de grabar una orden, el endpoint te devuelve el nro de orden (doc de la collection en firestore).
 
-    Ejemplo: 
+    Ejemplo:        
+```
 ```javascript
     mutation{
         addOrden(
