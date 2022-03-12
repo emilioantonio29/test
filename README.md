@@ -201,14 +201,17 @@
         }
     }       
 ```
-    2) Query para obtener el listado completo de ordenes realizadas: retorna un array con las ordenes. Cada orden es un objeto con el siguiente formato:
+```javascript
+    2) Query para obtener el listado completo de ordenes realizadas: retorna un array con las ordenes. 
+    Cada orden es un objeto con el siguiente formato:
     - El ID del DOC en firestore, utilizado como nro de orden de compra.
     - Un array de items (en caso de que haya comprado mas de un item); cada item tiene los 6 parametros que se muestran en el ejemplo.
     - El objeto comprador.
     - El objeto Date.
     - El total de la compra.
 
-    Ejemplo:
+    Ejemplo:        
+```
 ```javascript
     query{
         orders{
@@ -234,10 +237,12 @@
         }
     }      
 ```
+```javascript
     3) Query para obtener el listado completo de ordenes de un usuario (se le pasa el mail del comprador)
     - Devuelve la lista de ordenes que ha comprado un usuario. Se filtra por mail.
 
-    Ejemplo:
+    Ejemplo:      
+```
 ```javascript
     query{
         ordersByUser(email: "emilio_antonio29@hotmail.com")
