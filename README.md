@@ -165,7 +165,7 @@
     - Despues de grabar una orden, el endpoint te devuelve el nro de orden (doc de la collection en firestore).
 
     Ejemplo: 
-
+```javascript
     mutation{
         addOrden(
             comprador: {
@@ -199,9 +199,8 @@
         {
             id
         }
-    }
-
-
+    }       
+```
     2) Query para obtener el listado completo de ordenes realizadas: retorna un array con las ordenes. Cada orden es un objeto con el siguiente formato:
     - El ID del DOC en firestore, utilizado como nro de orden de compra.
     - Un array de items (en caso de que haya comprado mas de un item); cada item tiene los 6 parametros que se muestran en el ejemplo.
@@ -210,7 +209,7 @@
     - El total de la compra.
 
     Ejemplo:
-
+```javascript
     query{
         orders{
         id,
@@ -233,38 +232,38 @@
         },
         total
         }
-    }
-
-
+    }      
+```
     3) Query para obtener el listado completo de ordenes de un usuario (se le pasa el mail del comprador)
     - Devuelve la lista de ordenes que ha comprado un usuario. Se filtra por mail.
 
     Ejemplo:
-
+```javascript
     query{
-        ordersByUser(email: "emilio_antonio29@hotmail.com"){
+        ordersByUser(email: "emilio_antonio29@hotmail.com")
+        {
             id,
             comprador{
-            nombre,
-            email,
-            telefono
+                nombre,
+                email,
+                telefono
             },
             date{
-            _seconds,
-            _nanoseconds
+                _seconds,
+                _nanoseconds
             },
             items{
-            cantidadComprada,
-            categoria,
-            precio,
-            nombre,
-            id,
-            stockAfterBuy,
+                cantidadComprada,
+                categoria,
+                precio,
+                nombre,
+                id,
+                stockAfterBuy,
             }
             total
         }
-    }
-
+    } 
+```
 ## Reglas de negocio:
 - Cuando inicia la aplicacion se hace un llamado a FIRESTORE para traerse el listado de productos, el mismo se guarda en un global context y se pasa a los componentes que lo requieren.
 - La aplicación permite al usuario navegar por el sitio y agregar items al carrito hasta que se acabe el stock; estas actualizaciones (agregar items al carrito) se manejan con el local storage del browser.
