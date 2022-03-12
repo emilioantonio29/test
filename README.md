@@ -1,13 +1,19 @@
 test
 ```javascript
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+    _________    _____________________________________________________    ______________
+    |       | -> |                     BACK                          | -> |  DBs       |
+    | front |    |                                 ________________  |    |            |
+    |       | <- |   ------    ------    ------    |  ----- ----- |  | <- | mongoAtlas |
+    ---------    |   |    | -> |    | -> |    | -> |  |   | |   | |  |    | firestore  |
+                 |   |    |    |    |    |    |    |  | c | | m | |  |    --------------
+                 |   |____| <- |____| <- |____| <- |  |___| |___| |  |
+                 |                                 |______________|  |
+                 |   routes  controller  service          DAO        |
+                 ---------------------------↑-------------------------
+                            ↓       ↑       |_________
+                    --------------------------        ↓         
+                    |                        |     ---------
+                    |       TEST LAYER       |     |mailing|
+                    |________________________|     |_______|
+                    
 ```
