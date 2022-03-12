@@ -1,5 +1,4 @@
 ## Arquitectura: 
-
 - Frontend: React | directorio client-react
 - Backend: Node JS - Express | directorio server-express 
 - DBs: Mongo (usuarios) | Firestore (productos y compras)
