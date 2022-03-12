@@ -1,5 +1,5 @@
 test
-```python
+```javascript
 import foobar
 
 # returns 'words'
